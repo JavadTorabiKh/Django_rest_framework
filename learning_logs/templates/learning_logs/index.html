@@ -1,4 +1,13 @@
-{% extends "learning_logs/base.html" %} {% block content %}
-<p>learning logs</p>
-<p>this is first website</p>
-{% endblock content %}
+{% extends "learning_logs/base.html" %} {% block page_header %}
+<div class="jumbotron">
+  <h1 class="display-3">Track your learning.</h1>
+  <p class="lead">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veniam nobis
+    odit explicabo ducimus natus facilis. Corrupti sed aliquam quisquam, eaque
+    libero quis earum est dicta, voluptatibus amet officia ut?
+  </p>
+  <a href="{% url 'users:register' %}" class="btn btn-lg btn-primary" role="button">
+    Register &raquo;
+  </a>
+</div>
+{% endblock page_header %}
