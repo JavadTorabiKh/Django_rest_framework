@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import Http404
 
 from .models import Topic, Entry
@@ -25,7 +25,7 @@ def topics(request):
 # GET ENTRY
 @login_required
 def topic(request, topic_id):
-    topic = Topic.objects.get(id=topic_id)
+    topic = get_object_or_404(Topic,id=topic_id)
     if topic.owner != request.user:
         raise Http404
 
@@ -89,3 +89,7 @@ def edit_entry(request, entry_id):
 
     context = {"entry": entry, "topic": topic, "form": form}
     return render(request, "learning_logs/edit_entry.html", context)
+
+
+def notfound(request, exception):
+    return render(request, 'learning_logs/404.html')
