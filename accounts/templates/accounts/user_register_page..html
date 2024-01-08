@@ -1,0 +1,80 @@
+{% extends 'base/base.html' %}
+{% block content  %}
+        <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <p class="lead text-body-secondary">You Can Register on website  With This Form</p>
+        <p>
+          <a href="{%  url 'home:home_page' %}" class="btn btn-primary my-2">Home</a>
+          <a href="{% url 'accounts:user_login' %}" class="btn btn-secondary my-2">Login</a>
+        </p>
+      </div>
+    </div>
+
+</div>
+  </section>
+
+<form action="" method="post" novalidate>
+{% csrf_token %}
+  <div class="form-group">
+    <label for="{{ register_form.username.id_for_label }}">Username</label>
+    {{ register_form.username }}
+      {% for error in  register_form.username.errors  %}
+          <p class="text-danger">
+          {{ error }}
+          </p>
+      {%  endfor %}
+  </div>
+      <div class="form-group">
+    <label for="{{ register_form.email.id_for_label }}">Email address</label>
+           {{ register_form.email }}
+      {% for error in  register_form.email.errors  %}
+          <p class="text-danger">
+          {{ error }}
+          </p>
+      {%  endfor %}
+  </div>
+    <div class="form-group">
+    <label for="{{ register_form.first_name.id_for_label }}">FirstName</label>
+               {{ register_form.first_name }}
+      {% for error in  register_form.first_name.errors  %}
+          <p class="text-danger">
+          {{ error }}
+          </p>
+      {%  endfor %}
+  </div>
+
+    <div class="form-group">
+    <label for="{{ register_form.last_name.id_for_label }}">LastName</label>
+               {{ register_form.last_name }}
+      {% for error in  register_form.last_name.errors  %}
+          <p class="text-danger">
+          {{ error }}
+          </p>
+      {%  endfor %}
+  </div>
+  <div class="form-group">
+    <label for="{{ register_form.password.id_for_label }}">Password</label>
+    {{ register_form.password }}
+        {% for error in  register_form.password.errors  %}
+          <p class="text-danger">
+          {{ error }}
+          </p>
+      {%  endfor %}
+  </div>
+    <div class="form-group">
+    <label for="{{ register_form.password_2.id_for_label }}">Confirm Password</label>
+    {{ register_form.password_2 }}
+        {% for error in  register_form.password_2.errors  %}
+          <p class="text-danger">
+          {{ error }}
+          </p>
+      {%  endfor %}
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{%  endblock  %}
+{% block title  %}
+    Register Page
+{% endblock  %}

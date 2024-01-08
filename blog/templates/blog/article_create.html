@@ -1,0 +1,55 @@
+{% extends 'base/base.html' %}
+{% block title  %}Create Article{% endblock %}
+{% block content %}
+    <p class="text-warning">You Can Create Article With This Form</p>
+    <form class="form-control" method="post" action="" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+
+
+
+  <!-- 2 column grid layout with text inputs for the first and last names -->
+  <div class="row mb-4">
+    <div class="col">
+      <div class="form-outline">
+        {{ form.title }}
+          {% for erorr in form.title.errors %}
+              <p class="text-danger">{{ erorr }}</p>
+          {% endfor %}
+        <label class="form-label" for="{{ form.title.id_for_label }}">{{ form.title.label }}</label>
+      </div>
+    </div>
+
+      <div class="form-outline">
+        {{ form.text }}
+        <p class="text-warning">{{ form.text.help_text }}</p>
+            {% for erorr in form.text.errors %}
+              <p class="text-danger">{{ erorr }}</p>
+          {% endfor %}
+        <label class="form-label" for="{{ form.text.id_for_label }}">Text Article</label>
+
+    </div>
+  </div>
+
+  <!-- Text input -->
+  <div class="form-outline mb-4">
+    {{ form.image }}
+        {% for erorr in form.image.errors %}
+              <p class="text-danger">{{ erorr }}</p>
+          {% endfor %}
+    <label class="form-label" for="{{ form.image.id_for_label }}">Image</label>
+  </div>
+
+  <!-- Text input -->
+  <div class="form-outline mb-4">
+    {{ form.is_show }}
+    <label class="form-label" for="{{ form.is_show.id_for_label }}">Show?</label>
+  </div>
+
+        <h5>Form Errors</h5>
+    {{ form.errors }}
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-primary btn-block mb-4">Article Create</button>
+</form>
+{% endblock %}
+
+

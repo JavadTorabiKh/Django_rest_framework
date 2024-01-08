@@ -1,0 +1,33 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="../assets/js/color-modes.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.112.5">
+    <title>{% block title  %}{% endblock title %}</title>
+      <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/">
+    {% include 'base/header_ref.html' %}
+
+
+  </head>
+  <body>
+    {% include 'base/svg_ref.html' %}
+
+
+
+
+{% include 'base/header.html' %}
+
+<main>
+    {% block content %}{%  endblock content %}
+</main>
+
+    {% include 'base/footer.html' with message="Hello Form Footer" %}
+    {% include 'base/footer_ref.html' %}
+
+    </body>
+</html>
