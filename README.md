@@ -14,7 +14,7 @@ This repository is a site created using the Django framework.
 ```shell
     python3 manage.py makemigrations
     python3 manage.py migrate
-    python3 manage.py runserver
+    python3 manage.py runserver 8000
 ```
 
 
