@@ -22,3 +22,27 @@ def get_users(request: Request):
             todo_serializer.save()
             return Response({"status": "success", "data": todo_serializer.data}, status.HTTP_201_CREATED)
         return Response({"status": "erorr"}, status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(["GET", "PUT", "DELETE"])
+def get_user(request: Request, todoId: int):
+
+    try:
+        todo = Todo.objects.get(pk=todoId)
+    except Todo.DoesNotExist:
+        return Response({"status": "erorr"}, status.HTTP_404_NOT_FOUND)
+
+    if request.method == "GET":
+        todo_serializer = TodoSerializer(todo, many=False)
+        return Response(todo_serializer.data, status.HTTP_200_OK)
+
+    elif request.method == "PUT":
+        todo_serializer = TodoSerializer(todo, data=request.data)
+        if todo_serializer.is_valid():
+            todo_serializer.save()
+            return Response(todo_serializer.data, status.HTTP_202_ACCEPTED)
+        return Response({"status": "erorr"}, status.HTTP_404_NOT_FOUND)
+
+    if request.method == "DELETE":
+        todo.delete()
+        return Response(None, status.HTTP_204_NO_CONTENT)
