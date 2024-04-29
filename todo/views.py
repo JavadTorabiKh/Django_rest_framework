@@ -7,6 +7,7 @@ from rest_framework.request import Request
 from rest_framework import status
 from rest_framework.decorators import api_view
 from .serializers import TodoSerializer
+from rest_framework.views import APIView
 
 
 @api_view(["GET", "POST"])
@@ -46,3 +47,17 @@ def get_user(request: Request, todoId: int):
     if request.method == "DELETE":
         todo.delete()
         return Response(None, status.HTTP_204_NO_CONTENT)
+
+
+class ManageTodosApiViews(APIView):
+    def get(self, request: Request):
+        if request.method == "GET":
+            json_data = list(Todo.objects.all().values())
+            todo_serializer = TodoSerializer(json_data, many=True)
+            return Response(todo_serializer.data, status.HTTP_200_OK)
+
+    def post(self, request: Request):
+        if request.method == "GET":
+            json_data = list(Todo.objects.all().values())
+            todo_serializer = TodoSerializer(json_data, many=True)
+            return Response(todo_serializer.data, status.HTTP_200_OK)
