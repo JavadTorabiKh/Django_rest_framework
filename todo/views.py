@@ -9,6 +9,8 @@ from rest_framework.decorators import api_view
 from .serializers import TodoSerializer
 from rest_framework.views import APIView
 
+# region function view
+
 
 @api_view(["GET", "POST"])
 def get_users(request: Request):
@@ -47,6 +49,10 @@ def get_user(request: Request, todoId: int):
     if request.method == "DELETE":
         todo.delete()
         return Response(None, status.HTTP_204_NO_CONTENT)
+
+# endregion
+
+# region class base view
 
 
 class TodosListApiView(APIView):
@@ -89,3 +95,11 @@ class TodosDetailApiView(APIView):
         todo = self.get_obj(todoId)
         todo.delete()
         return Response(None, status.HTTP_204_NO_CONTENT)
+
+# endregion
+
+
+# region mixin
+
+
+# endregion
