@@ -49,15 +49,43 @@ def get_user(request: Request, todoId: int):
         return Response(None, status.HTTP_204_NO_CONTENT)
 
 
-class ManageTodosApiViews(APIView):
+class TodosListApiView(APIView):
     def get(self, request: Request):
-        if request.method == "GET":
-            json_data = list(Todo.objects.all().values())
-            todo_serializer = TodoSerializer(json_data, many=True)
-            return Response(todo_serializer.data, status.HTTP_200_OK)
+        json_data = list(Todo.objects.all().values())
+        todo_serializer = TodoSerializer(json_data, many=True)
+        return Response(todo_serializer.data, status.HTTP_200_OK)
 
     def post(self, request: Request):
-        if request.method == "GET":
-            json_data = list(Todo.objects.all().values())
-            todo_serializer = TodoSerializer(json_data, many=True)
+        todo_serializer = TodoSerializer(data=request.data)
+        if todo_serializer.is_valid():
+            todo_serializer.save()
+            return Response({"status": "success", "data": todo_serializer.data}, status.HTTP_201_CREATED)
+        return Response({"status": "erorr"}, status.HTTP_400_BAD_REQUEST)
+
+
+class TodosDetailApiView(APIView):
+    def get_obj(self, todoId: int):
+        try:
+            return Todo.objects.get(pk=todoId)
+        except Todo.DoesNotExist:
+            return None
+
+    def get(self, request: Request, todoId: int):
+        todo = self.get_obj(todoId)
+        if todo:
+            todo_serializer = TodoSerializer(todo, many=False)
             return Response(todo_serializer.data, status.HTTP_200_OK)
+        return Response(None, status.HTTP_400_BAD_REQUEST)
+
+    def put(self, request: Request, todoId: int):
+        todo = self.get_obj(todoId)
+        todo_serializer = TodoSerializer(todo, data=request.data)
+        if todo_serializer.is_valid():
+            todo_serializer.save()
+            return Response(todo_serializer.data, status.HTTP_202_ACCEPTED)
+        return Response({"status": "erorr"}, status.HTTP_404_NOT_FOUND)
+
+    def delete(self, request: Request, todoId: int):
+        todo = self.get_obj(todoId)
+        todo.delete()
+        return Response(None, status.HTTP_204_NO_CONTENT)
