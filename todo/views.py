@@ -6,16 +6,24 @@ from rest_framework.request import Request
 
 from rest_framework import status
 from rest_framework.decorators import api_view
-from .serializers import TodoSerializer
+from .serializers import TodoSerializer, UserSerializer
 from rest_framework.views import APIView
+from rest_framework import generics, mixins
+from rest_framework import viewsets
+from django.contrib.auth import get_user_model
+from rest_framework.pagination import PageNumberPagination, LimitOffsetPagination
+from rest_framework.authentication import BaseAuthentication
+from rest_framework.permissions import IsAuthenticated
+
 
 # region function view
+User = get_user_model()
 
 
 @api_view(["GET", "POST"])
 def get_users(request: Request):
     if request.method == "GET":
-        json_data = list(Todo.objects.all().values())
+        json_data = list(Todo.objects.all())
         todo_serializer = TodoSerializer(json_data, many=True)
 
         return Response(todo_serializer.data, status.HTTP_200_OK)
@@ -101,5 +109,67 @@ class TodosDetailApiView(APIView):
 
 # region mixin
 
+class TodosMixinListApi(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericAPIView):
+    queryset = Todo.objects.all()
+    serializer_class = TodoSerializer
+
+    def get(self, request: Request):
+        return self.list(request)
+
+    def post(self, request: Request):
+        return self.create(request)
+
+
+class TodosMixinDetailApi(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin, generics.GenericAPIView):
+    queryset = Todo.objects.all()
+    serializer_class = TodoSerializer
+
+    def get(self, request: Request, pk):
+        return self.retrieve(request, pk)
+
+    def put(self, request: Request, pk):
+        return self.update(request, pk)
+
+    def delete(self, request: Request, pk):
+        return self.destroy(request, pk)
+
+# endregion
+
+
+# region generics
+class TodosGenericsPaginationSize(PageNumberPagination):
+    page_size = 3
+
+
+class TodosGenericsListApiView(generics.ListCreateAPIView):
+
+    queryset = Todo.objects.all()
+    serializer_class = TodoSerializer
+    pagination_class = TodosGenericsPaginationSize
+
+    # authentication
+    # authentication_classes = [BaseAuthentication]
+    # permission_classes = [IsAuthenticated]
+
+
+class TodosGenericsDetailApiView(generics.RetrieveUpdateDestroyAPIView):
+
+    queryset = Todo.objects.all()
+    serializer_class = TodoSerializer
+
+# endregion
+
+
+# region viewset
+
+class TodosviewSetApiView(viewsets.ModelViewSet):
+    queryset = Todo.objects.all()
+    serializer_class = TodoSerializer
+    pagination_class = PageNumberPagination
+
+
+class UsersViewSetApiView(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 # endregion
