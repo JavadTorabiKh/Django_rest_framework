@@ -12,9 +12,9 @@ from rest_framework import generics, mixins
 from rest_framework import viewsets
 from django.contrib.auth import get_user_model
 from rest_framework.pagination import PageNumberPagination, LimitOffsetPagination
-from rest_framework.authentication import BaseAuthentication
+from rest_framework.authentication import BaseAuthentication, TokenAuthentication
+from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.permissions import IsAuthenticated
-
 
 # region function view
 User = get_user_model()
@@ -148,8 +148,8 @@ class TodosGenericsListApiView(generics.ListCreateAPIView):
     pagination_class = TodosGenericsPaginationSize
 
     # authentication
-    # authentication_classes = [BaseAuthentication]
-    # permission_classes = [IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
 
 
 class TodosGenericsDetailApiView(generics.RetrieveUpdateDestroyAPIView):
