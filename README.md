@@ -2,13 +2,18 @@
 
 Short description of the project.
 
-## Installation
+## Clone
 
 Clone the repository:
    ```bash
     git clone https://github.com/JavadTorabiKh/Django_rest_framework.git
     cd Django_rest_framework
 
+
+## Installation
+
+install and run:
+    ```bash
     python -m venv env
     source env/bin/activate
 
