@@ -4,16 +4,16 @@ Short description of the project.
 
 ## Installation
 
-1. Clone the repository:
+Clone the repository:
    ```bash
    git clone https://github.com/JavadTorabiKh/Django_rest_framework.git
    cd yourproject
 
-python -m venv env
-source env/bin/activate
+    python -m venv env
+    source env/bin/activate
 
-pip install -r requirements.txt
+    pip install -r requirements.txt
 
-python manage.py migrate
+    python manage.py migrate
 
-python manage.py runserver
+    python manage.py runserver
