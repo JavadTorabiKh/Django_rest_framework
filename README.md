@@ -13,6 +13,8 @@ Clone the repository:
     source env/bin/activate
 
     pip install -r requirements.txt
+    or
+    pip install -r requirements.txt --no-deps
 
     python manage.py migrate
 
