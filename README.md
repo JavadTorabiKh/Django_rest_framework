@@ -1,4 +1,4 @@
-# Project Name
+# Django_rest_framework
 
 Short description of the project.
 
