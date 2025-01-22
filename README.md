@@ -27,3 +27,7 @@ To get started with this project, follow the steps below:
 3. Install Requirements:
    ```bash
    pip install -r requirements.txt
+
+4. Run Migrations:
+   ```bash
+   python manage.py migrate
