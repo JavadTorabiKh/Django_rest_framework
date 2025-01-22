@@ -19,3 +19,11 @@ To get started with this project, follow the steps below:
    git clone https://github.com/JavadTorabiKh/Django_rest_framework.git
    cd Django_rest_framework
 
+2. Set Up a Virtual Environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+
+3. Install Requirements:
+   ```bash
+   pip install -r requirements.txt
