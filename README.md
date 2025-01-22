@@ -38,6 +38,7 @@ To get started with this project, follow the steps below:
 
 
 📖 Usage
+
 Once the server is running, you can access the API endpoints through:
 GET /api/items/: Retrieve a list of items.
 POST /api/items/: Create a new item.
@@ -46,6 +47,7 @@ DELETE /api/items/<id>/: Delete an item.
 
 
 🔧 Technologies Used
+
 Django: Web framework for building the API.
 Django REST Framework: Toolkit for building Web APIs.
 SQLite: Lightweight database for development.
@@ -53,6 +55,7 @@ Postman: Tool for testing API endpoints.
 
 
 🎯 Objectives
+
 This project aims to:
 Showcase my expertise in backend development.
 Demonstrate the ability to build scalable and maintainable web services.
@@ -60,12 +63,15 @@ Implement best practices in API design and data management.
 
 
 🤝 Contributing
+
 Contributions are welcome! Feel free to fork the repository and submit a pull request.
 
 
 📄 License
+
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 
 📞 Contact
+
 For any inquiries or feedback, reach out at j.2528840@gmail.com.
