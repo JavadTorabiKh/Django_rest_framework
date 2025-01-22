@@ -31,3 +31,7 @@ To get started with this project, follow the steps below:
 4. Run Migrations:
    ```bash
    python manage.py migrate
+
+5. Start the Development Server:
+   ```bash
+   python manage.py runserver
