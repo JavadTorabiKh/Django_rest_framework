@@ -2,16 +2,16 @@
 
 Welcome to the **Django JSON API Project**! This project serves as a demonstration of my backend development skills, showcasing the ability to create a robust and efficient API using Django.
 
-## 🚀 Features
 
+## 🚀 Features
 - **RESTful API**: Seamless interaction through HTTP methods (GET, POST, PUT, DELETE).
 - **JSON Data Transfer**: Efficient data exchange using JSON format for lightweight communication.
 - **Authentication**: Secure endpoints to protect sensitive data.
 - **CRUD Operations**: Create, Read, Update, and Delete operations implemented for data management.
 - **Django ORM**: Utilizing Django's powerful Object-Relational Mapping for database interactions.
 
-## 📦 Installation
 
+## 📦 Installation
 To get started with this project, follow the steps below:
 
 1. **Clone the Repository**:
@@ -36,34 +36,36 @@ To get started with this project, follow the steps below:
    ```bash
    python manage.py runserver
 
-📖 Usage
 
+📖 Usage
 Once the server is running, you can access the API endpoints through:
 GET /api/items/: Retrieve a list of items.
 POST /api/items/: Create a new item.
 PUT /api/items/<id>/: Update an existing item.
 DELETE /api/items/<id>/: Delete an item.
 
-🔧 Technologies Used
 
+🔧 Technologies Used
 Django: Web framework for building the API.
 Django REST Framework: Toolkit for building Web APIs.
 SQLite: Lightweight database for development.
 Postman: Tool for testing API endpoints.
 
-🎯 Objectives
 
+🎯 Objectives
 This project aims to:
 Showcase my expertise in backend development.
 Demonstrate the ability to build scalable and maintainable web services.
 Implement best practices in API design and data management.
+
+
 🤝 Contributing
 Contributions are welcome! Feel free to fork the repository and submit a pull request.
 
-📄 License
 
+📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-📞 Contact
 
+📞 Contact
 For any inquiries or feedback, reach out at j.2528840@gmail.com.
