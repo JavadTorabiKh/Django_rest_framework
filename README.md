@@ -54,7 +54,7 @@ SQLite: Lightweight database for development.
 Postman: Tool for testing API endpoints.
 
 
-🎯 Objectives
+## 🎯 Objectives
 
 This project aims to:
 Showcase my expertise in backend development.
@@ -62,7 +62,7 @@ Demonstrate the ability to build scalable and maintainable web services.
 Implement best practices in API design and data management.
 
 
-🤝 Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Feel free to fork the repository and submit a pull request.
 
