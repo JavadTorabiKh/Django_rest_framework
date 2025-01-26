@@ -46,7 +46,7 @@ PUT /api/items/<id>/: Update an existing item.
 DELETE /api/items/<id>/: Delete an item.
 
 
-🔧 Technologies Used
+## 🔧 Technologies Used
 
 Django: Web framework for building the API.
 Django REST Framework: Toolkit for building Web APIs.
