@@ -37,7 +37,7 @@ To get started with this project, follow the steps below:
    python manage.py runserver
 
 
-📖 Usage
+## 📖 Usage
 
 Once the server is running, you can access the API endpoints through:
 GET /api/items/: Retrieve a list of items.
