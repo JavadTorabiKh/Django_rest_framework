@@ -67,7 +67,7 @@ Implement best practices in API design and data management.
 Contributions are welcome! Feel free to fork the repository and submit a pull request.
 
 
-📄 License
+## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
