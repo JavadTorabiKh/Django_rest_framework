@@ -15,7 +15,7 @@ Welcome to the **Django JSON API Project**! This project serves as a demonstrati
 To get started with this project, follow the steps below:
 
 1. **Clone the Repository**:
-   ```bash
+   ```sh
    git clone https://github.com/JavadTorabiKh/Django_rest_framework.git
    cd Django_rest_framework
 
